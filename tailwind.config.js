@@ -8,8 +8,11 @@ export default {
     extend: {
       colors: {
         primary: 'rgb(var(--color-primary) / <alpha-value>)'
+      },
+      fontFamily: {
+        'TC': [`'Poppins'`, `'Noto Sans TC'`, 'sans-serif', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas']
       }
-    },
+    }
   },
   plugins: [],
 }
