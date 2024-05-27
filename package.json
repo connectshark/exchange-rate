@@ -1,8 +1,8 @@
 {
-  "name": "vue-tailwind-template",
+  "name": "exchange-rate",
   "repository": {
     "type": "git",
-    "url": "https://github.com/connectshark/vue-tailwind-template"
+    "url": "https://github.com/connectshark/exchange-rate"
   },
   "license": "MIT",
   "version": "0.1.0",
