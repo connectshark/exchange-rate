@@ -1,7 +1,6 @@
-import { ref } from 'vue'
+import { ref, unref } from 'vue'
 
-const useFetch = () => {
-  const DOMAIN = import.meta.env.VITE_API_URI + '/' + import.meta.env.VITE_API_VERSION + '/latest/'
+const useFetch = (url) => {
   const loading = ref(false)
   const result = ref(null)
   const error = ref(null)
@@ -11,12 +10,12 @@ const useFetch = () => {
    * @param {string} content.uri - 搜尋幣別，預設TWD
    * @param {string} content.method - 方法，預設是GET
    */
-  const doFetch = async ({ currency, method } = { currency: 'TWD', method: 'GET' }) => {
+  const doFetch = async ({ method } = { method: 'GET' }) => {
     loading.value = true
     result.value = null
     error.value = null
 
-    const API_URL = DOMAIN + currency
+    const API_URL = unref(url)
 
     const fetch_response = await fetch(API_URL, {
       method: method

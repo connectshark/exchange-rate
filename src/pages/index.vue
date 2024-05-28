@@ -27,11 +27,14 @@ const targetCurrencyAmount = computed(() => {
   }
 })
 
+
+const URL = computed(() => import.meta.env.VITE_API_URI + '/' + import.meta.env.VITE_API_VERSION + '/latest/' + currency.value)
+
 const {
   doFetch: getRate,
   loading,
   result
-} = useFetch()
+} = useFetch(URL)
 
 watchEffect(() => {
   getRate({

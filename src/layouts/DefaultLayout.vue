@@ -7,14 +7,15 @@
     </router-link>
     <nav>
       <ul>
+        <li></li>
       </ul>
     </nav>
   </div>
 </header>
-<main>
+<main class="mb-20">
   <slot/>
 </main>
-<footer class="pt-10">
+<footer>
   <div class=" max-w-6xl mx-auto w-11/12 py-8 grid gap-10 md:grid-cols-3">
     <div>
       <p>
@@ -22,7 +23,7 @@
       </p>
     </div>
     <div class="md:col-start-3">
-      <p v-for="link in links">
+      <p class="mb-3 last:mb-0" v-for="link in links">
         <a class="hover:underline" :href="link.url" target="_blank">{{ link.name }}<i class='bx bx-link-external'></i></a>
       </p>
     </div>
@@ -39,6 +40,10 @@ const links = [
   {
     url: 'https://kfc.justlikeboss.com/',
     name: '酷碰獅'
+  },
+  {
+    url: 'https://blog.justlikeboss.com/shopee-coupon/',
+    name: '蝦皮折扣碼'
   }
 ]
 </script>
