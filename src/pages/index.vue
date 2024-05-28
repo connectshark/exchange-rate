@@ -12,6 +12,7 @@ const targetCurrency = ref('KRW')
 const targetCurrencyInfo = computed(() => countries.find(country => country.code === targetCurrency.value))
 
 const changeCurrency = () => {
+  currencyAmount.value = 100
   const newCurrency = targetCurrency.value
   const newTargetCurrency = currency.value
   currency.value = newCurrency
@@ -45,8 +46,10 @@ watchEffect(() => {
   <div class=" max-w-4xl mx-auto w-4/5">
     <div class=" rounded-md shadow-md bg-white p-10">
       <div class=" flex items-center justify-between mb-10">
-        <p>{{ targetCurrencyInfo.name }}</p>
-        <input class=" focus:border-primary border-b border-gray-300 min-w-0 w-16 outline-none appearance-none bg-transparent" list="country-code" type="text" v-model.trim.lazy="targetCurrency">
+        <p class="text-xl">{{ targetCurrencyInfo.name }}</p>
+        <select v-model="targetCurrency" class=" focus:border-primary border-b text-sm border-gray-300 min-w-0 outline-none appearance-none bg-transparent">
+          <option v-for="country in countries" id="country.code" :value="country.code">{{ country.code }}{{ country.name }}</option>
+        </select>
       </div>
       <div class=" relative">
         <label for="currency" class="absolute bottom-2">
@@ -55,15 +58,17 @@ watchEffect(() => {
         <p class="border-b border-gray-300 text-4xl pl-6">{{ targetCurrencyAmount }}</p>
       </div>
     </div>
-    <div class=" text-center">
-      <button @click="changeCurrency" class=" bg-primary text-white p-1 rounded-full" type="button">
+    <div class=" text-center -my-2">
+      <button @click="changeCurrency" class=" hover:opacity-80 relative z-10 text-center bg-primary text-white p-2 rounded-full shadow-xl" type="button">
         <i class='bx bx-transfer-alt bx-rotate-90 bx-sm align-middle' ></i>
       </button>
     </div>
     <div class=" rounded-md shadow-md bg-white p-10 mb-10">
       <div class=" flex items-center justify-between mb-10">
-        <p>{{ currencyInfo.name }}</p>
-        <input class=" focus:border-primary border-b border-gray-300 min-w-0 w-16 outline-none appearance-none bg-transparent" list="country-code" type="text" v-model.trim.lazy="currency">
+        <p class="text-xl">{{ currencyInfo.name }}</p>
+        <select v-model="currency" class=" focus:border-primary border-b text-sm border-gray-300 min-w-0 outline-none appearance-none bg-transparent">
+          <option v-for="country in countries" id="country.code" :value="country.code">{{ country.code }}{{ country.name }}</option>
+        </select>
       </div>
       <div class=" relative">
         <label for="currency" class="absolute bottom-2">
