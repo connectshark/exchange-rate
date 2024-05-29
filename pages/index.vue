@@ -1,8 +1,19 @@
 <script setup>
-import useFetch from '../composables/useFetch'
-import DefaultLayout from '../layouts/DefaultLayout.vue'
 import countries from '../assets/country.json'
-import { computed, ref, watchEffect } from 'vue'
+const { ogImage } = useAppConfig()
+
+definePageMeta({
+  title: '首頁'
+})
+
+defineOgImageComponent(
+  'NuxtSeo',
+  {
+    ...ogImage,
+    siteLogo: '/logo.png'
+  }
+)
+
 
 const currency = ref('TWD')
 const currencyInfo = computed(() => countries.find(country => country.code === currency.value))
@@ -27,24 +38,23 @@ const targetCurrencyAmount = computed(() => {
   }
 })
 
+const { public: config } = useRuntimeConfig()
 
-const URL = computed(() => import.meta.env.VITE_API_URI + '/' + import.meta.env.VITE_API_VERSION + '/latest/' + currency.value)
+const URL = computed(() => config.API_URI + '/' + config.API_VERSION + '/latest/' + currency.value)
 
 const {
   doFetch: getRate,
   loading,
   result
-} = useFetch(URL)
+} = useModernFetch(URL)
 
 watchEffect(() => {
-  getRate({
-    currency: currency.value.toUpperCase()
-  })
+  getRate()
 })
 </script>
 
 <template>
-<DefaultLayout>
+<NuxtLayout>
 <section>
   <div class=" max-w-4xl mx-auto w-4/5">
     <div class=" rounded-md shadow-md bg-white p-10">
@@ -95,5 +105,6 @@ watchEffect(() => {
     </datalist>
   </div>
 </section>
-</DefaultLayout>
-</template>
+</NuxtLayout>
+</template>import type appConfig from '~/app.config'
+
