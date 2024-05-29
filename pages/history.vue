@@ -36,6 +36,7 @@ const {
     start_date: timeFormat(new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)),
     data_id: currency
   },
+  watch: false,
   immediate: false
 })
 
@@ -47,6 +48,7 @@ const {
 
 watch(currency, async () => {
   await destroyChart()
+  await doFetch()
   await createChart()
 })
 
