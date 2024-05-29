@@ -24,10 +24,10 @@ export default defineNuxtConfig({
         lang: 'zh-TW'
       },
       meta: [
-        { name: 'description' , content: 'Nuxt Content for starter'},
+        { name: 'description' , content: '歡迎來到小資匯，我們提供即時更新的匯率資料，讓您輕鬆進行各種貨幣之間的換算。我們的網站簡單易用，支援多種貨幣，無論是旅行、購物還是商業交易，都能幫助您快速獲取準確的匯率資訊，享受便捷的匯率換算體驗！'},
         { hid: 'og-type', property: 'og:type', content: 'website' },
-        { hid: 'og-title', property: 'og:title', content: 'Nuxt Content for starter' },
-        { hid: 'og-description', property: 'og:description', content: 'Nuxt Content for starter' },
+        { hid: 'og-title', property: 'og:title', content: '小資匯' },
+        { hid: 'og-description', property: 'og:description', content: '歡迎來到小資匯，我們提供即時更新的匯率資料，讓您輕鬆進行各種貨幣之間的換算。我們的網站簡單易用，支援多種貨幣，無論是旅行、購物還是商業交易，都能幫助您快速獲取準確的匯率資訊，享受便捷的匯率換算體驗！' },
         { hid: 'og-image', property: 'og:image', content: '/og-image.png' },
       ],
       link: [
