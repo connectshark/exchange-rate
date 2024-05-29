@@ -1,5 +1,4 @@
 [
-  {"code": "CNY", "en": "Chinese Renminbi", "country": "China", "name": "中國"},
   {"code": "GBP", "en": "Pound Sterling", "country": "United Kingdom", "name": "英國"},
   {"code": "HKD", "en": "Hong Kong Dollar", "country": "Hong Kong", "name": "香港"},
   {"code": "JPY", "en": "Japanese Yen", "country": "Japan", "name": "日本"},

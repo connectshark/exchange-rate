@@ -2,10 +2,6 @@
 import countries from '../assets/country.json'
 const { ogImage } = useAppConfig()
 
-definePageMeta({
-  title: '首頁'
-})
-
 defineOgImageComponent(
   'NuxtSeo',
   {
@@ -14,6 +10,9 @@ defineOgImageComponent(
   }
 )
 
+definePageMeta({
+  title: '小資匯'
+})
 
 const currency = ref('TWD')
 const currencyInfo = computed(() => countries.find(country => country.code === currency.value))
