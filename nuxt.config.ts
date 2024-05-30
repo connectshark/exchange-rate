@@ -57,6 +57,9 @@ export default defineNuxtConfig({
       API_VERSION: process.env.NUXT_API_VERSION
     }
   },
+  routeRules: {
+    '/api/brands.json': { prerender: true }
+  },
   devServer: {
     port: 8080
   }

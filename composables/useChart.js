@@ -27,8 +27,10 @@ export default (ctx, list) => {
       type: 'line',
       data: createChartData(data),
       options: {
+        responsive: true,
         interaction: {
-          intersect: false
+          intersect: false,
+          mode: 'index'
         }
       }
     })

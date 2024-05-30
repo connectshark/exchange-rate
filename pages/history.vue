@@ -65,16 +65,16 @@ onMounted(async () => {
       <h1 class="font-bold text-center text-xl/loose mb-6">歷史匯率</h1>
     </div>
     <div class=" text-center mb-10 space-x-6">
+      <p class="text-sm inline-block">TWD 新台幣</p>
+      <span>
+        <i class='bx bx-transfer-alt align-middle' ></i>
+      </span>
       <p class="relative inline-block">
         <select v-model="currency" aria-label="select target currency code" id="targetCurrency-code" class=" relative z-10 focus:border-primary border-b text-sm border-gray-300 min-w-0 outline-none appearance-none bg-transparent">
           <option v-for="country in countries" id="country.code" :value="country.code">{{ country.code }}{{ country.name }}</option>
         </select>
         <label class=" absolute right-0" for="targetCurrency-code"><i class='bx bx-chevron-down'></i></label>
       </p>
-      <span>
-        <i class='bx bx-transfer-alt align-middle' ></i>
-      </span>
-      <p class="text-sm inline-block">TWD 新台幣</p>
     </div>
     <p v-show="pending" class=" text-center">
       <i class='bx bx-loader bx-spin' ></i>
@@ -87,19 +87,23 @@ onMounted(async () => {
     <p v-if="pending" class=" text-center">
       <i class='bx bx-loader bx-spin' ></i>
     </p>
-    <table v-else class="table-auto w-full">
+    <table v-else class="table-auto w-full max-w-4xl mx-auto">
       <thead>
         <tr class="bg-primary/50 text-stone-700">
           <th class="p-2 text-left">日期</th>
           <th class="p-2 text-left">現金買入</th>
           <th class="p-2 text-left">現金賣出</th>
+          <th class="p-2 text-left">即期買入</th>
+          <th class="p-2 text-left">即期賣出</th>
         </tr>
       </thead>
       <tbody>
         <tr class=" odd:bg-primary/10" v-for="item in exchangeList.data.toReversed()">
-          <td class="text-stone-600 p-2">{{ item.date }}</td>
-          <td class="text-stone-600 p-2">{{ item.cash_buy }}</td>
-          <td class="text-stone-600 p-2">{{ item.cash_sell }}</td>
+          <td class="text-stone-600 p-2 md:p-3 text-sm md:text-base">{{ item.date }}</td>
+          <td class="text-stone-600 p-2 md:p-3 text-sm md:text-base">{{ item.cash_buy }}</td>
+          <td class="text-stone-600 p-2 md:p-3 text-sm md:text-base">{{ item.cash_sell }}</td>
+          <td class="text-stone-600 p-2 md:p-3 text-sm md:text-base">{{ item.spot_buy }}</td>
+          <td class="text-stone-600 p-2 md:p-3 text-sm md:text-base">{{ item.spot_sell }}</td>
         </tr>
       </tbody>
     </table>
