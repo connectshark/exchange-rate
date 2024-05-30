@@ -11,7 +11,7 @@ defineOgImageComponent(
 )
 
 definePageMeta({
-  title: '小資匯'
+  title: '匯星'
 })
 
 const currency = ref('TWD')
@@ -67,7 +67,7 @@ watchEffect(() => {
         </p>
       </div>
       <div class=" relative">
-        <span class="absolute bottom-2">
+        <span class="absolute top-2">
           <i class='bx bx-dollar bx-sm align-middle' ></i>
         </span>
         <p class="border-b-2 border-gray-300 text-4xl pl-6 line-clamp-1">{{ targetCurrencyAmount }}</p>
@@ -89,7 +89,7 @@ watchEffect(() => {
         </p>
       </div>
       <div class=" relative">
-        <label for="currency" class="absolute bottom-2">
+        <label for="currency" class="absolute top-2">
           <i class='bx bx-dollar bx-sm align-middle' ></i>
         </label>
         <input v-model.number="currencyAmount" type="tel" id="currency" class="text-4xl w-full pl-6 focus:border-primary border-b-2 border-gray-300 min-w-0 outline-none appearance-none bg-transparent">
@@ -105,5 +105,4 @@ watchEffect(() => {
   </div>
 </section>
 </NuxtLayout>
-</template>import type appConfig from '~/app.config'
-
+</template>

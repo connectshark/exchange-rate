@@ -60,7 +60,7 @@ onMounted(async () => {
 
 <template>
 <NuxtLayout>
-  <div class="w-11/12 mx-auto">
+  <section class="w-11/12 mx-auto mb-20">
     <div>
       <h1 class="font-bold text-center text-xl/loose mb-6">歷史匯率</h1>
     </div>
@@ -82,6 +82,27 @@ onMounted(async () => {
     <div class="mb-10">
       <canvas v-show="!pending" ref="canvas" class="w-full max-h-96"/>
     </div>
-  </div>
+  </section>
+  <section class="w-11/12 mx-auto">
+    <p v-if="pending" class=" text-center">
+      <i class='bx bx-loader bx-spin' ></i>
+    </p>
+    <table v-else class="table-auto w-full">
+      <thead>
+        <tr class="bg-primary/50 text-stone-700">
+          <th class="p-2 text-left">日期</th>
+          <th class="p-2 text-left">現金買入</th>
+          <th class="p-2 text-left">現金賣出</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class=" odd:bg-primary/10" v-for="item in exchangeList.data.toReversed()">
+          <td class="text-stone-600 p-2">{{ item.date }}</td>
+          <td class="text-stone-600 p-2">{{ item.cash_buy }}</td>
+          <td class="text-stone-600 p-2">{{ item.cash_sell }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </NuxtLayout>
 </template>

@@ -1,13 +1,19 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "exchange-rate",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/connectshark/exchange-rate"
+  },
   "type": "module",
+  "author": {
+    "name": "Chambers Yeh",
+    "url": "https://github.com/connectshark"
+  },
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "preview": "nuxt preview"
   },
   "dependencies": {
     "@nuxtjs/seo": "^2.0.0-rc.9",
