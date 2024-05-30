@@ -39,6 +39,15 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://unpkg.com/boxicons@latest/css/boxicons.min.css' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap' }
       ],
+      script: [
+        { src: 'https://www.googletagmanager.com/gtag/js?id=G-YCP5DNJGV1', defer: true },
+        {
+          innerHTML: `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-YCP5DNJGV1');`
+        }
+      ]
     }
   },
   experimental: { payloadExtraction: false },

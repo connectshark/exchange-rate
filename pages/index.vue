@@ -30,7 +30,7 @@ const changeCurrency = () => {
 }
 
 const targetCurrencyAmount = computed(() => {
-  if (loading.value) {
+  if (loading.value || result.value === null) {
     return 0
   } else {
     return (currencyAmount.value * result.value.rates[targetCurrency.value]).toLocaleString()
@@ -42,14 +42,13 @@ const { public: config } = useRuntimeConfig()
 const URL = computed(() => config.API_URI + '/' + config.API_VERSION + '/latest/' + currency.value)
 
 const {
-  doFetch: getRate,
-  loading,
-  result
-} = useModernFetch(URL)
+  data: result,
+  pending: loading
+} = useFetch(URL)
 
-watchEffect(() => {
-  getRate()
-})
+const vFocus = {
+  mounted: (el) => el.focus()
+}
 </script>
 
 <template>
@@ -92,12 +91,14 @@ watchEffect(() => {
         <label for="currency" class="absolute top-2">
           <i class='bx bx-dollar bx-sm align-middle' ></i>
         </label>
-        <input v-model.number="currencyAmount" type="tel" id="currency" class="text-4xl w-full pl-6 focus:border-primary border-b-2 border-gray-300 min-w-0 outline-none appearance-none bg-transparent">
+        <input v-focus v-model.number="currencyAmount" type="tel" id="currency" class="text-4xl w-full pl-6 focus:border-primary border-b-2 border-gray-300 min-w-0 outline-none appearance-none bg-transparent">
       </div>
     </div>
     <div class=" text-center">
-      <p class="text-stone-600" v-if="loading"><i class='bx bx-loader bx-spin' ></i></p>
-      <p class="text-stone-600" v-else>1 {{ currency }} = {{ result.rates[targetCurrency].toLocaleString() }} {{ targetCurrency }}</p>
+      <ClientOnly>
+        <p class="text-stone-600" v-if="loading"><i class='bx bx-loader bx-spin' ></i></p>
+        <p class="text-stone-600" v-else>1 {{ currency }} = {{ result.rates[targetCurrency].toLocaleString() }} {{ targetCurrency }}</p>
+      </ClientOnly>
     </div>
     <datalist id="country-code">
       <option v-for="country in countries" id="country.code" :value="country.code">{{ country.name }}</option>
