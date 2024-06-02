@@ -17,7 +17,7 @@
   <main class="mb-20">
     <slot/>
   </main>
-  <footer class="py-10 bg-stone-100">
+  <footer class="py-10 bg-gradient-to-b from-transparent to-25% to-stone-100">
     <div class="max-w-6xl mx-auto w-5/6">
       <div class="grid gap-10 grid-cols-2 md:grid-cols-4 mb-10">
         <div>
@@ -31,6 +31,9 @@
             <a class="text-stone-500" href="mailto:contact@justlikeboss.com">
               <i class='bx bx-envelope bx-sm'></i>
             </a>
+          </p>
+          <p>
+            <a class=" text-xs text-stone-400"  href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer">Rates By Exchange Rate API<i class='bx bx-link-external'></i></a>
           </p>
         </div>
         <div class="md:col-start-2">

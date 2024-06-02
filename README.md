@@ -1,75 +1,19 @@
-# Nuxt 3 Minimal Starter
+# exchange-rate
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<img style="width: 20px; margin: 0 10px 0 0;" src="./assets/logo.svg">匯星 - 匯率換算
 
-## Setup
+可查詢當前台幣兌換外幣，和查詢歷史匯率
 
-Make sure to install the dependencies:
+[Live Demo](https://exchange-rate.justlikeboss.com)
 
-```bash
-# npm
-npm install
+## 目錄
+- [截圖](#截圖)
+- [使用技術](#使用技術)
 
-# pnpm
-pnpm install
 
-# yarn
-yarn install
+## 截圖
 
-# bun
-bun install
-```
+## 使用技術
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Nuxt
+- TailwindCSS
